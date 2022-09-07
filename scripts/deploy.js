@@ -1,13 +1,16 @@
 const { ethers, run, network } = require('hardhat')
 require("dotenv").config();
 
+/**
+ * main asyc function for deploying contract
+ */
 async function main() {
     const contractFactory = await ethers.getContractFactory('SimpleStorage')
     console.log('Deploying contarct....')
     const contract = await contractFactory.deploy()
     await contract.deployed()
     console.log(contract.address)
-        // console.log(network.config)
+     
     if (network.config.chainId === 5 && process.env.ETHERSCANAPIKEY) {
         await contract.deployTransaction.wait(6)
         await verify(contract.address, []);
@@ -24,6 +27,11 @@ async function main() {
 
 }
 
+/**
+ * verifiying contract after deploying
+ * @param {*} contractAddress 
+ * @param {*} arg 
+ */
 const verify = async(contractAddress, arg) => {
     console.log('verifing contract ::::')
     try {
