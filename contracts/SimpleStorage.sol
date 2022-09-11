@@ -23,6 +23,10 @@ contract SimpleStorage {
         return favNumber;
     }
 
+    function getPerson() public view returns (People[] memory) {
+        return person;
+    }
+
     function addPerson(string memory _name, uint256 _age) public {
         person.push(People(_name, _age));
         namToage[_name] = _age;
