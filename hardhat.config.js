@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require('./task/block-number')
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
