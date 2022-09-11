@@ -25,6 +25,13 @@ async function main() {
     const updatedValue = await contract.get()
     console.log(`updatedValue value is ${updatedValue.toString()}`)
 
+   await contract.addPerson("sammy",19)
+   console.log("ading person:::::::::::")
+
+   const people = await contract.getPerson()
+   console.log(`people : ${people}`)
+
+
 }
 
 /**
